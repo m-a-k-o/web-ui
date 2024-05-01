@@ -1,7 +1,5 @@
 const en = {
-
     // Common
-
     'Close': 'اغلق',
     'From': 'من',
     'To': 'إلى',
@@ -20,11 +18,9 @@ const en = {
     'Start wayfinding': 'ابدأ الملاحة',
 
     // Location Details
-
     'Read full description': 'اقرأ الوصف الكامل',
 
     // Locations list
-
     'Locations': 'المواقع',
     'Directions not available': 'لا تتوفر الاتجاهات',
     'Start directions': 'ابدأ الملاحة',
@@ -33,10 +29,9 @@ const en = {
 
     'Previous': 'سابق',
     'Next': 'تالي',
-    'StepYofX': '1 {{activeStep}} of {{totalSteps}}',
+    'StepYofX': 'Step {{activeStep}} of {{totalSteps}}',
 
     // Route Instructions Step
-
     'You have arrived': 'لقد وصلت',
     'Leave': 'اترك',
     'Park': 'موقف',
@@ -63,7 +58,6 @@ const en = {
     'Turn around': 'انعطف',
 
     // Wayfinding component
-
     'Switch': 'حوّل',
     'Accessibility': 'الإمكانية',
     'No route found': 'لم يتم العثور على مسار',
@@ -72,22 +66,18 @@ const en = {
     'Go!': 'Go!',
 
     // Venue selector
-
     'Venues': 'مواقع',
     'Select venue': 'حدد المواقع',
     'Current': 'الحالي',
 
     // QR code dialog
-
     'Scan QR code': 'مسح رمز الاستجابة السريعة',
     'Scan the QR code to see the route on your phone': 'مسح رمز الاستجابة السريعة لرؤية الطريق على هاتفك',
     'Done': 'انتهي',
 
     // Directions
-
     'Cancel route': 'إلغاء الطريق',
     'Finish route': 'إنهاء الطريق',
-
 };
 
 export default en;

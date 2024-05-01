@@ -163,8 +163,15 @@
         border: none;
         background: transparent;
         position: absolute;
-        right: 0;
         top: 80px;
+
+        &__rtl {
+            left: 0;
+        }
+
+        &__ltr {
+            right: 0;
+        }
 
         &:hover {
             opacity: .8;

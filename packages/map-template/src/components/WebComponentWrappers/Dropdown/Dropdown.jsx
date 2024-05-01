@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import i18n from 'i18next'
 
 /**
  * React wrapper around the custom element <mi-dropdown>.
@@ -21,7 +22,7 @@ function Dropdown({ selectionChanged, children }) {
     }, [selectionChanged]);
 
 
-    return <mi-dropdown ref={elementRef}>{children}</mi-dropdown>
+    return <mi-dropdown dir={i18n.dir()} ref={elementRef}>{children}</mi-dropdown>
 }
 
 export default Dropdown;

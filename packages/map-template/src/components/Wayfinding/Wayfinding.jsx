@@ -34,6 +34,7 @@ import useDirectionsInfo from "../../hooks/useDirectionsInfo";
 import hasFoundRouteState from "../../atoms/hasFoundRouteState";
 import accessibilityOnState from "../../atoms/accessibilityOnState";
 import Accessibility from "../Accessibility/Accessibility";
+import i18n from 'i18next'
 
 const searchFieldIdentifiers = {
     TO: 'TO',
@@ -413,7 +414,7 @@ function Wayfinding({ onStartDirections, onBack, directionsToLocation, direction
                     </label>
                     <button onClick={() => switchDirectionsHandler()}
                         aria-label={t('Switch')}
-                        className="wayfinding__switch">
+                        className={`wayfinding__switch wayfinding__switch__${i18n.dir()}`}>
                         <SwitchIcon />
                     </button>
                     <label className="wayfinding__label">
