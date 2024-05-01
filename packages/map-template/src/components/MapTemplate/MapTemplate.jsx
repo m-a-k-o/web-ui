@@ -207,8 +207,6 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
         if (mapsindoorsSDKAvailable) {
             const languageToUse = language ? language : navigator.language;
 
-            document.dir = i18n.dir()
-
             // Set the language on the MapsIndoors SDK in order to get eg. Mapbox and Google directions in that language.
             window.mapsindoors.MapsIndoors.setLanguage(languageToUse);
 
@@ -246,6 +244,8 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
             }
 
             setCurrentLanguage(languageToUse);
+
+            document.dir = i18n.dir()
         }
     }, [language, mapsindoorsSDKAvailable]);
 
