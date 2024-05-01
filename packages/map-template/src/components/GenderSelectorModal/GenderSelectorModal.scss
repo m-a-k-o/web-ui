@@ -1,0 +1,82 @@
+.gender-modal__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(242, 243, 245, 0.8);
+    z-index: var(--z-index-overlay);
+}
+
+.gender-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    width: 70%;
+    z-index: var(--z-index-modal);
+
+    &__content {
+        display: flex;
+        background: white;
+        border-radius: var(--rounding-large);
+        padding: var(--spacing-medium);
+    }
+
+    &__item {
+        transition: background-color .3s;
+        border-radius: var(--rounding-large);
+        padding: 48px;
+        margin: 20px;
+        background-color: #E5E7EB;
+        width: 50%;
+        color: #005655;
+
+        &__title {
+            text-align: center;
+            font-weight: 700;
+            line-height: 24px;
+            font-size: 20px;
+        }
+
+        &:hover {
+            background-color: #005655;
+            color: #fff;
+        }
+
+        &__selected {
+            background-color: #005655;
+            color: #fff;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        width: 50%;
+        height: 80px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        border: none;
+        margin-top: 64px;
+        border-radius: var(--rounding-large);
+        color: #fff;
+
+        &__active {
+            cursor: pointer;
+            background-color: #005655;
+        }
+
+        &__disabled {
+            cursor: not-allowed;
+            background-color: #B1B1B2;
+        }
+    }
+}

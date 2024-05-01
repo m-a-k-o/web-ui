@@ -29,6 +29,7 @@ function Accessibility({ onAccessibilityChanged }) {
 
     return <div className="accessibility">
         <input className="mi-toggle"
+            dir="ltr"
             type="checkbox"
             checked={accessibilityOn}
             onChange={event => handleAccessibilityChanged(event)}

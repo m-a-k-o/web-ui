@@ -53,6 +53,7 @@ import isLegendDialogVisibleState from '../../atoms/isLegendDialogVisibleState.j
 import searchAllVenuesState from '../../atoms/searchAllVenues.js';
 import currentVenueNameState from '../../atoms/currentVenueNameState.js';
 import categoryState from '../../atoms/categoryState.js';
+import GenderSelectorModal from '../GenderSelectorModal/GenderSelectorModal.jsx'
 
 // Define the Custom Elements from our components package.
 defineCustomElements();
@@ -205,6 +206,8 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
     useEffect(() => {
         if (mapsindoorsSDKAvailable) {
             const languageToUse = language ? language : navigator.language;
+
+            document.dir = i18n.dir()
 
             // Set the language on the MapsIndoors SDK in order to get eg. Mapbox and Google directions in that language.
             window.mapsindoors.MapsIndoors.setLanguage(languageToUse);
@@ -643,6 +646,9 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
                 }
             </Fragment>
         }
+
+        <GenderSelectorModal />
+
         <MIMap
             useMapProviderModule={useMapProviderModule}
             onVenueChangedOnMap={(venue) => venueChangedOnMap(venue)}

@@ -142,8 +142,8 @@ function Categories({ onSetSize, getFilteredLocations, searchFieldRef }) {
     }, [selectedCategory]);
 
     /*
-     * If the active category is a prop/query parameter and the bottom sheet is loaded, 
-     * then scroll into view and center the active category. 
+     * If the active category is a prop/query parameter and the bottom sheet is loaded,
+     * then scroll into view and center the active category.
      */
     useEffect(() => {
         if (activeCategory && category !== undefined && (isDesktop || (!isDesktop && isBottomSheetLoaded))) {
@@ -152,7 +152,7 @@ function Categories({ onSetSize, getFilteredLocations, searchFieldRef }) {
     }, [activeCategory, category, isBottomSheetLoaded]);
 
     return (
-        <div className="categories prevent-scroll" {...scrollableContentSwipePrevent}>
+        <div dir="ltr" className="categories prevent-scroll" {...scrollableContentSwipePrevent}>
             {categories.length > 0 &&
                 <>
                     {isDesktop &&

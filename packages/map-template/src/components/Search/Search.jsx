@@ -99,7 +99,7 @@ function Search({ onSetSize, isOpen }) {
     const searchAllVenues = useRecoilValue(searchAllVenuesState);
 
     /**
-     * 
+     *
      * Get the locations and filter through them based on categories selected.
      *
      * @param {string} category
@@ -331,7 +331,7 @@ function Search({ onSetSize, isOpen }) {
     }, [useKeyboard]);
 
     /*
-     * React on changes in the selected category state. 
+     * React on changes in the selected category state.
      * If the selected category is present, get the filtered locations based on the selected category.
      */
     useEffect(() => {
@@ -341,7 +341,7 @@ function Search({ onSetSize, isOpen }) {
     }, [selectedCategory]);
 
     /*
-     * Get the legend sections and determine 
+     * Get the legend sections and determine
      * If the legend button should be shown.
      */
     useEffect(() => {

@@ -453,7 +453,7 @@ function Wayfinding({ onStartDirections, onBack, directionsToLocation, direction
                     </div>
                 </div>}
             {!searchTriggered && !showMyPositionOption && hasFoundRoute && !hasGooglePlaces && originLocation && destinationLocation && <div className={`wayfinding__details`} ref={detailsRef}>
-                <div className="wayfinding__settings">
+                <div className="wayfinding__settings" dir="ltr">
                     <Accessibility />
                     <div className="wayfinding__travel">
                         <Dropdown selectionChanged={travelMode => setTravelMode(travelMode[0].value)}>
