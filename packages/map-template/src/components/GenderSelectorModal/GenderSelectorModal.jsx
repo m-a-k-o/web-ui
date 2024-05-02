@@ -1,9 +1,11 @@
 import './GenderSelectorModal.scss'
 import { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import genderState from '../../atoms/genderState.js'
 
 function GenderSelectorModal() {
     const [isModalOpen, setIsModalOpen] = useState(true)
-    const [gender, setGender] = useState(null)
+    const [gender, setGender] = useRecoilState(genderState)
 
     function confirm() {
         setIsModalOpen(false)

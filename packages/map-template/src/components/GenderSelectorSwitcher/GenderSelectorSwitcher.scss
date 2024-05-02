@@ -1,0 +1,50 @@
+.gender-switcher {
+    display: flex;
+    background-color: #F9FAFB;
+    padding: 4px;
+    margin: 0 16px 16px 16px;
+    border-radius: var(--rounding-large);
+    border: 1px solid var(--color-gray-30);
+
+    &__item {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 50%;
+        color: #737373;
+        font-weight: 400;
+        line-height: 24px;
+        font-size: 16px;
+        padding: 6px;
+
+        &__selected {
+            background-color: #005655;
+            color: #fff;
+            border-radius: var(--rounding-medium);;
+
+            > .gender-switcher__item__image {
+                background-color: #fff !important;
+
+                svg {
+                    color: #005655 !important;
+                }
+            }
+        }
+
+        &__image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            background-color: #707070;
+            border-radius: var(--rounding-circle);
+
+            svg {
+                padding: 4.5px;
+                color: #fff;
+            }
+        }
+    }
+}

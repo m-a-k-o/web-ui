@@ -10,6 +10,7 @@ import Search from '../Search/Search';
 import LocationsList from '../LocationsList/LocationsList';
 import locationIdState from '../../atoms/locationIdState';
 import kioskLocationState from '../../atoms/kioskLocationState';
+import GenderSelectorSwitcher from '../GenderSelectorSwitcher/GenderSelectorSwitcher.jsx'
 
 /**
  * @param {Object} props
@@ -42,7 +43,7 @@ function Sidebar({ directionsFromLocation, directionsToLocation, pushAppView, cu
             pushAppView(appViews.LOCATION_DETAILS, currentLocation);
         } else if (filteredLocationsByExternalIDs?.length > 1) {
             pushAppView(appViews.EXTERNALIDS);
-            // If there is only one external ID, behave the same as having the location ID prop. 
+            // If there is only one external ID, behave the same as having the location ID prop.
         } else if (filteredLocationsByExternalIDs?.length === 1) {
             setCurrentLocation(filteredLocationsByExternalIDs[0])
             setLocationId(filteredLocationsByExternalIDs[0].id)
@@ -91,6 +92,7 @@ function Sidebar({ directionsFromLocation, directionsToLocation, pushAppView, cu
     const pages = [
         <Modal isOpen={currentAppView === appViews.SEARCH} key="A">
             <Search isOpen={currentAppView === appViews.SEARCH} />
+            <GenderSelectorSwitcher isOpen={currentAppView === appViews.SEARCH} />
         </Modal>,
         <Modal isOpen={currentAppView === appViews.EXTERNALIDS} key="B">
             <LocationsList
