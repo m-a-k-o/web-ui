@@ -78,6 +78,11 @@ const en = {
     // Directions
     'Cancel route': 'إلغاء الطريق',
     'Finish route': 'إنهاء الطريق',
+
+    'Men': 'رجال',
+    'Women': 'نحيف',
+
+    'Continue': 'يكمل',
 };
 
 export default en;

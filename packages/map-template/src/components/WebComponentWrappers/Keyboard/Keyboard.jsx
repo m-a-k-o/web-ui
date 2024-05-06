@@ -15,6 +15,8 @@ const Keyboard = forwardRef(({ searchInputElement }, ref) => {
 
     const language = useRecoilValue(languageState);
 
+    console.log(language)
+
     /**
      * Methods that can be triggered on the mi-keyboard element.
      */
@@ -32,7 +34,7 @@ const Keyboard = forwardRef(({ searchInputElement }, ref) => {
         }
     }, [searchInputElement]);
 
-    return <mi-keyboard language={language} ref={elementRef}></mi-keyboard>
+    return <mi-keyboard dir="ltr" language={language} ref={elementRef}></mi-keyboard>
 });
 
 export default Keyboard;

@@ -2,6 +2,7 @@ import './GenderSelectorModal.scss'
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import genderState from '../../atoms/genderState.js'
+import { t } from 'i18next'
 
 function GenderSelectorModal() {
     const [isModalOpen, setIsModalOpen] = useState(true)
@@ -9,7 +10,6 @@ function GenderSelectorModal() {
 
     function confirm() {
         setIsModalOpen(false)
-        window.mapsindoors?.MapsIndoors?.setUserRoles(['8ac2f8afd9af491390bff756'])
     }
 
     return (<>
@@ -47,7 +47,7 @@ function GenderSelectorModal() {
                                     <path d="M100.875 59.2876L67.9624 219.319" stroke="currentColor" />
                                 </svg>
 
-                                <div className="gender-modal__item__title">Men</div>
+                                <div className="gender-modal__item__title">{t('Men')}</div>
                             </div>
 
                             <div
@@ -72,14 +72,14 @@ function GenderSelectorModal() {
                                         stroke="currentColor" />
                                 </svg>
 
-                                <div className="gender-modal__item__title">Women</div>
+                                <div className="gender-modal__item__title">{t('Women')}</div>
                             </div>
                         </div>
 
                         <div className="gender-modal__footer">
                             <button type="button"
                                     className={`gender-modal__button ${gender === null ? 'gender-modal__button__disabled' : 'gender-modal__button__active'}`}
-                                    onClick={() => confirm()}>Continue
+                                    onClick={() => confirm()}>{t('Continue')}
                             </button>
                         </div>
                     </div>

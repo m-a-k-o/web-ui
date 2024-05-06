@@ -309,7 +309,8 @@ function Search({ onSetSize, isOpen }) {
      * When useKeyboard parameter is present, add click event listener which determines when the keyboard should be shown or not.
      */
     useEffect(() => {
-        if (useKeyboard) {
+        console.log(useKeyboard)
+        if (true) {
             const onClick = (event) => {
                 // Use the closest() method to check if the element that has been clicked traverses the element and its parents
                 // until it finds a node that matches the 'mi-keyboard' selector.

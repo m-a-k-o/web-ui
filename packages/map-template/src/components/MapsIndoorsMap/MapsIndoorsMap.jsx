@@ -28,7 +28,7 @@ import MapTemplate from '../MapTemplate/MapTemplate.jsx';
  * @param {string} [props.kioskOriginLocationId] - If running the Map Template as a kiosk (upcoming feature), provide the Location ID that represents the location of the kiosk.
  * @param {number} [props.timeout] - If you want the Map Template to reset map position and UI elements to the initial state after some time of inactivity, use this to specify the number of seconds of inactivity before resetting.
  * @param {string} [props.language] - The language to show textual content in. Supported values are "en" for English, "da" for Danish, "de" for German and "fr" for French. If the prop is not set, the language of the browser will be used (if it is one of the four supported languages - otherwise it will default to English).
- * @param {boolean} [props.useKeyboard] - If running the Map Template as a kiosk, set this prop to true and it will prompt a keyboard. 
+ * @param {boolean} [props.useKeyboard] - If running the Map Template as a kiosk, set this prop to true and it will prompt a keyboard.
  * @param {number} [props.miTransitionLevel] - The zoom level on which to transition from Mapbox to MapsIndoors data. Default value is 17. This feature is only available for Mapbox.
  * @param {string} [props.category] - If you want to indicate an active category on the map. The value should be the Key (Administrative ID).
  * @param {boolean} [props.searchAllVenues] - If you want to perform search across all venues in the solution.
@@ -47,13 +47,14 @@ function MapsIndoorsMap(props) {
         const queryStringParams = new URLSearchParams(queryString);
 
         const defaultProps = {
-            apiKey: 'mapspeople3d',
+            apiKey: '387f7a221c304fee84df8b8d',
             venue: 'AUSTINOFFICE',
             logo: 'https://app.mapsindoors.com/mapsindoors/gfx/mapspeople-logo/mapspeople-pin.svg',
             primaryColor: '#005655', // --brand-colors-dark-pine-100 from MIDT
             useMapProviderModule: false,
-            useKeyboard: false, 
+            useKeyboard: false,
             searchAllVenues: false,
+            language: 'ar'
         };
 
         const apiKeyQueryParameter = queryStringParams.get('apiKey');
@@ -101,7 +102,7 @@ function MapsIndoorsMap(props) {
             useMapProviderModule: props.supportsUrlParameters && useMapProviderModuleParameter ? useMapProviderModuleParameter : (props.useMapProviderModule || defaultProps.useMapProviderModule),
             kioskOriginLocationId: props.supportsUrlParameters && kioskOriginLocationIdQueryParameter ? kioskOriginLocationIdQueryParameter : props.kioskOriginLocationId,
             timeout: props.supportsUrlParameters && timeoutQueryParameter ? timeoutQueryParameter : props.timeout,
-            language: props.supportsUrlParameters && languageQueryParameter ? languageQueryParameter : props.language,
+            language: props.supportsUrlParameters && languageQueryParameter ? languageQueryParameter : (props.language || defaultProps.language),
             supportsUrlParameters: props.supportsUrlParameters,
             useKeyboard: props.supportsUrlParameters && useKeyboardQueryParameter ? useKeyboardQueryParameter : (props.useKeyboard || defaultProps.useKeyboard),
             miTransitionLevel: props.supportsUrlParameters && miTransitionLevelQueryParameter ? miTransitionLevelQueryParameter : props.miTransitionLevel,
