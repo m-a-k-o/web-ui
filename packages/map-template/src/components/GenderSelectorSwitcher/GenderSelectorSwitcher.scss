@@ -6,6 +6,10 @@
     border-radius: var(--rounding-large);
     border: 1px solid var(--color-gray-30);
 
+    @media (max-width: 992px) {
+        margin: 0 8px 10px 8px;
+    }
+
     &__item {
         justify-content: center;
         display: flex;

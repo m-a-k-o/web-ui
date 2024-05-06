@@ -13,6 +13,7 @@ import Directions from '../Directions/Directions';
 import Search from '../Search/Search';
 import LocationsList from '../LocationsList/LocationsList';
 import locationIdState from '../../atoms/locationIdState';
+import GenderSelectorSwitcher from '../GenderSelectorSwitcher/GenderSelectorSwitcher.jsx'
 
 /**
  * @param {Object} props
@@ -22,7 +23,7 @@ import locationIdState from '../../atoms/locationIdState';
  * @param {string} props.currentAppView - Holds the current view/state of the Map Template.
  * @param {array} props.appViews - Array of all possible views.
  * @param {function} props.onRouteFinished - Callback that fires when the route has finished.
- * 
+ *
  */
 function BottomSheet({ directionsFromLocation, directionsToLocation, pushAppView, currentAppView, appViews, onRouteFinished }) {
 
@@ -57,7 +58,7 @@ function BottomSheet({ directionsFromLocation, directionsToLocation, pushAppView
             pushAppView(appViews.LOCATION_DETAILS, currentLocation);
         } else if (filteredLocationsByExternalIDs?.length > 1) {
             pushAppView(appViews.EXTERNALIDS);
-            // If there is only one external ID, behave the same as having the location ID prop. 
+            // If there is only one external ID, behave the same as having the location ID prop.
         } else if (filteredLocationsByExternalIDs?.length === 1) {
             setCurrentLocation(filteredLocationsByExternalIDs[0])
             setLocationId(filteredLocationsByExternalIDs[0].id)
@@ -101,6 +102,7 @@ function BottomSheet({ directionsFromLocation, directionsToLocation, pushAppView
             <Search
                 onSetSize={size => setSearchSheetSize(size)}
             />
+            <GenderSelectorSwitcher />
         </Sheet>,
         <Sheet
             minHeight="200"
