@@ -29,7 +29,7 @@ const en = {
 
     'Previous': 'سابق',
     'Next': 'تالي',
-    'StepYofX': 'Step {{activeStep}} of {{totalSteps}}',
+    'StepYofX': 'الخطوة {{activeStep}} من {{totalSteps}}',
 
     // Route Instructions Step
     'You have arrived': 'لقد وصلت',
@@ -42,7 +42,7 @@ const en = {
     'Take the ladder to level': 'خذ السلم إلى المستوى',
     'Take elevator to level': 'خذ المصعد إلى المستوى',
     'Take escalator to level': 'خذ سلم كهربائي إلى المستوى',
-    'Take wheelchair lift to level': 'Take wheelchair lift to level',
+    'Take wheelchair lift to level': 'خذ مصعد الكرسي المتحرك إلى المستوى',
     'Take wheelchair ramp to level': 'خذ مصعد الكرسي المتحرك إلى المستوى',
     'Exit': 'مخرج',
     'Enter': 'أدخل',

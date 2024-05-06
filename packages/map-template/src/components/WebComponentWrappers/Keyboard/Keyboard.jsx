@@ -1,6 +1,7 @@
 import { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import languageState from '../../../atoms/languageState';
+import i18n from 'i18next'
 
 /**
  * React wrapper around the custom element <mi-keyboard>.
@@ -32,7 +33,7 @@ const Keyboard = forwardRef(({ searchInputElement }, ref) => {
         }
     }, [searchInputElement]);
 
-    return <mi-keyboard dir="ltr" language={language} ref={elementRef}></mi-keyboard>
+    return <mi-keyboard dir="ltr" rtl={i18n.dir() === 'rtl'} language={language} ref={elementRef}></mi-keyboard>
 });
 
 export default Keyboard;

@@ -44,7 +44,10 @@ export const arabicAlphabetic = {
         '\u0634 \u0633 \u064A \u0628 \u0644 \u0627 \u062A \u0646 \u0645 \u0643 \u0637',
         '\u0626 \u0621 \u0624 \u0631 \u0644\u0627 \u0649 \u0629 \u0648 \u0632 \u0638 . - &',
         '{space}'
-    ]
+    ],
+    display: {
+        '{space}': 'فضاء'
+    }
 };
 
 export const defaultAlphabetic = unitedStatesAlphabetic;
