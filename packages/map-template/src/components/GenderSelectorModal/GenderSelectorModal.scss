@@ -24,6 +24,10 @@
         background: white;
         border-radius: var(--rounding-large);
         padding: var(--spacing-medium);
+
+        @media (max-width: 600px) {
+            flex-wrap: wrap;
+        }
     }
 
     &__item {
@@ -34,6 +38,10 @@
         background-color: #E5E7EB;
         width: 50%;
         color: #005655;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
 
         &__title {
             text-align: center;
