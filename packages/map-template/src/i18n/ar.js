@@ -63,7 +63,7 @@ const en = {
     'No route found': 'لم يتم العثور على مسار',
     'My position': 'موقعي',
     'Turn on Accessibility to get directions that avoid stairs and escalators.': 'قم بتشغيل التوافر للحصول على الاتجاهات التي تتجنب الدرج والمصاعد الكهربائية',
-    'Go!': 'Go!',
+    'Go!': 'يذهب',
 
     // Venue selector
     'Venues': 'مواقع',

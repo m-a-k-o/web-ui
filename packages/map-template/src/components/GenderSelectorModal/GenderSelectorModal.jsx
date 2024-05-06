@@ -51,8 +51,8 @@ function GenderSelectorModal() {
                             </div>
 
                             <div
-                                className={`gender-modal__item ${gender === 'women' ? 'gender-modal__item__selected' : ''}`}
-                                onClick={() => setGender('women')}>
+                                className={`gender-modal__item ${gender === 'woman' ? 'gender-modal__item__selected' : ''}`}
+                                onClick={() => setGender('woman')}>
                                 <svg viewBox="0 0 320 320" fill="none" strokeWidth="5"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path

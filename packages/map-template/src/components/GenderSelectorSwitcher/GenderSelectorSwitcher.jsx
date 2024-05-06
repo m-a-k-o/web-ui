@@ -41,8 +41,8 @@ function GenderSelectorSwitcher({ isOpen }) {
                 </div>
 
                 <div
-                    className={`gender-switcher__item ${gender === 'women' ? 'gender-switcher__item__selected' : ''}`}
-                    onClick={() => select('women')}>
+                    className={`gender-switcher__item ${gender === 'woman' ? 'gender-switcher__item__selected' : ''}`}
+                    onClick={() => select('woman')}>
 
                     <div className="gender-switcher__item__image">
                         <svg viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
