@@ -50,11 +50,14 @@ function MapsIndoorsMap(props) {
             apiKey: '387f7a221c304fee84df8b8d',
             venue: 'AUSTINOFFICE',
             logo: 'https://app.mapsindoors.com/mapsindoors/gfx/mapspeople-logo/mapspeople-pin.svg',
-            primaryColor: '#005655', // --brand-colors-dark-pine-100 from MIDT
+            primaryColor: '#7a133f', // --brand-colors-dark-pine-100 from MIDT
             useMapProviderModule: false,
             useKeyboard: false,
             searchAllVenues: false,
-            language: 'ar'
+            language: 'ar',
+            bearing: 247,
+            startZoomLevel: 21,
+            pitch: 50
         };
 
         const apiKeyQueryParameter = queryStringParams.get('apiKey');
@@ -90,9 +93,9 @@ function MapsIndoorsMap(props) {
             directionsFrom: props.supportsUrlParameters && directionsFromQueryParameter ? directionsFromQueryParameter : props.directionsFrom,
             directionsTo: props.supportsUrlParameters && directionsToQueryParameter ? directionsToQueryParameter : props.directionsTo,
             tileStyle: props.supportsUrlParameters && tileStyleQueryParameter ? tileStyleQueryParameter : props.tileStyle,
-            startZoomLevel: props.supportsUrlParameters && startZoomLevelQueryParameter ? startZoomLevelQueryParameter : props.startZoomLevel,
-            pitch: props.supportsUrlParameters && pitchQueryParameter ? pitchQueryParameter : props.pitch,
-            bearing: props.supportsUrlParameters && bearingQueryParameter ? bearingQueryParameter : props.bearing,
+            startZoomLevel: props.supportsUrlParameters && startZoomLevelQueryParameter ? startZoomLevelQueryParameter : (props.startZoomLevel || defaultProps.startZoomLevel),
+            pitch: props.supportsUrlParameters && pitchQueryParameter ? pitchQueryParameter : (props.pitch || defaultProps.pitch),
+            bearing: props.supportsUrlParameters && bearingQueryParameter ? bearingQueryParameter : (props.bearing || defaultProps.bearing ),
             gmApiKey: props.supportsUrlParameters && gmApiKeyQueryParameter ? gmApiKeyQueryParameter : props.gmApiKey,
             mapboxAccessToken: props.supportsUrlParameters && mapboxAccessTokenQueryParameter ? mapboxAccessTokenQueryParameter : props.mapboxAccessToken,
             primaryColor: props.supportsUrlParameters && primaryColorQueryParameter ? '#' + primaryColorQueryParameter : (props.primaryColor || defaultProps.primaryColor),
