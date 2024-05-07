@@ -13,6 +13,7 @@ import useSetMaxZoomLevel from '../../hooks/useSetMaxZoomLevel';
 import { usePreventSwipe } from '../../hooks/usePreventSwipe';
 import isDestinationStepState from '../../atoms/isDestinationStepState';
 import { useIsKioskContext } from '../../hooks/useIsKioskContext';
+import i18n from 'i18next'
 
 /**
  * Route instructions step by step component.
@@ -141,15 +142,15 @@ function RouteInstructions({ steps, onNextStep, onPreviousStep, originLocation, 
                     >
                     </RouteInstructionsStep>
                     <div className={`route-instructions__footer ${!isKioskContext ? '' : 'route-instructions__footer--kiosk'}`}>
-                        <div dir="ltr" className="route-instructions__actions">
-                            <button className={`route-instructions__button ${!isKioskContext ? '' : 'route-instructions__button--kiosk'}`}
+                        <div dir="rtl" className="route-instructions__actions">
+                            <button className={`route-instructions__button ${!isKioskContext ? '' : 'route-instructions__button--kiosk'} ${i18n.dir() === 'rtl' ? 'route-instructions__button--rtl' : ''}`}
                                 onClick={() => previousStep()}
                                 aria-label={t('Previous')}
                                 disabled={activeStep === 0}>
                                 <ArrowLeft></ArrowLeft>
                             </button>
                             <div className="route-instructions__overview">{t('StepYofX', { activeStep: activeStep + 1, totalSteps: totalSteps.length })}</div>
-                            <button className={`route-instructions__button ${!isKioskContext ? '' : 'route-instructions__button--kiosk'}`}
+                            <button className={`route-instructions__button ${!isKioskContext ? '' : 'route-instructions__button--kiosk'} ${i18n.dir() === 'rtl' ? 'route-instructions__button--rtl' : ''}`}
                                 onClick={() => nextStep()}
                                 aria-label={t('Next')}
                                 disabled={activeStep === totalSteps.length - 1}>

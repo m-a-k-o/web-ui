@@ -53,6 +53,12 @@
             border: 1px solid var(--color-gray-30);
             padding: 18px;
         }
+
+        &--rtl {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
     }
 
     button:disabled,
