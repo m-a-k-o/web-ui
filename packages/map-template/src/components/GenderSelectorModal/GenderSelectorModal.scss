@@ -52,6 +52,11 @@
 
         @media (max-width: 600px) {
             width: 100%;
+            padding: 24px;
+            margin: 12px;
+            max-height: 220px;
+            display: flex;
+            flex-direction: column;
         }
 
         &__title {
