@@ -6,8 +6,8 @@ const genderState = atom({
     effects: [
         ({onSet}) => {
             onSet(gender => {
-                window.mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
-                    const roles = userRoles.filter(role => gender.includes(role.name.toLowerCase()));
+                window.mapsindoors.services.SolutionsService.getUserRoles().then((userRoles) => {
+                    const roles = userRoles.filter(role => gender.includes(role.name.toLowerCase().trim()));
                     window.mapsindoors.MapsIndoors.setUserRoles(roles);
                 });
             });
