@@ -102,7 +102,6 @@ function BottomSheet({ directionsFromLocation, directionsToLocation, pushAppView
             <Search
                 onSetSize={size => setSearchSheetSize(size)}
             />
-            <GenderSelectorSwitcher />
         </Sheet>,
         <Sheet
             minHeight="200"

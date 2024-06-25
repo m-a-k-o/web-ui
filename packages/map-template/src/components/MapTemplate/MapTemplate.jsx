@@ -53,7 +53,7 @@ import isLegendDialogVisibleState from '../../atoms/isLegendDialogVisibleState.j
 import searchAllVenuesState from '../../atoms/searchAllVenues.js';
 import currentVenueNameState from '../../atoms/currentVenueNameState.js';
 import categoryState from '../../atoms/categoryState.js';
-import GenderSelectorModal from '../GenderSelectorModal/GenderSelectorModal.jsx'
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.jsx'
 
 // Define the Custom Elements from our components package.
 defineCustomElements();
@@ -245,7 +245,7 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
 
             setCurrentLanguage(languageToUse);
 
-            document.dir = i18n.dir()
+            document.dir = i18n.dir();
         }
     }, [language, mapsindoorsSDKAvailable]);
 
@@ -618,6 +618,7 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
 
     return <div className={`mapsindoors-map ${locationsDisabledRef.current ? 'mapsindoors-map--hide-elements' : 'mapsindoors-map--show-elements'} ${showPositionControl ? 'mapsindoors-map--show-my-position' : 'mapsindoors-map--hide-my-position'}`}>
         <Notification />
+        <LanguageSwitcher />
         {!isMapReady && <SplashScreen />}
         {venues.length > 1 && showVenueSelector && <VenueSelector
             onOpen={() => pushAppView(appStates.VENUE_SELECTOR)}
@@ -650,8 +651,6 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
                 }
             </Fragment>
         }
-
-        <GenderSelectorModal />
 
         <MIMap
             useMapProviderModule={useMapProviderModule}

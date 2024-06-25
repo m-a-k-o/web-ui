@@ -92,7 +92,6 @@ function Sidebar({ directionsFromLocation, directionsToLocation, pushAppView, cu
     const pages = [
         <Modal isOpen={currentAppView === appViews.SEARCH} key="A">
             <Search isOpen={currentAppView === appViews.SEARCH} />
-            <GenderSelectorSwitcher isOpen={currentAppView === appViews.SEARCH} />
         </Modal>,
         <Modal isOpen={currentAppView === appViews.EXTERNALIDS} key="B">
             <LocationsList
