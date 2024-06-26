@@ -10,7 +10,6 @@ import Search from '../Search/Search';
 import LocationsList from '../LocationsList/LocationsList';
 import locationIdState from '../../atoms/locationIdState';
 import kioskLocationState from '../../atoms/kioskLocationState';
-import GenderSelectorSwitcher from '../GenderSelectorSwitcher/GenderSelectorSwitcher.jsx'
 
 /**
  * @param {Object} props
@@ -89,46 +88,44 @@ function Sidebar({ directionsFromLocation, directionsToLocation, pushAppView, cu
         }
     }
 
-    const pages = [
-        <Modal isOpen={currentAppView === appViews.SEARCH} key="A">
-            <Search isOpen={currentAppView === appViews.SEARCH} />
-        </Modal>,
-        <Modal isOpen={currentAppView === appViews.EXTERNALIDS} key="B">
-            <LocationsList
-                onBack={() => closeLocationsList()}
-                locations={filteredLocationsByExternalIDs}
-                onLocationClick={(location) => setCurrentLocation(location)}
-                onLocationsFiltered={(locations) => setFilteredLocationsByExternalID(locations)}
-            />
-        </Modal>,
-        <Modal isOpen={currentAppView === appViews.LOCATION_DETAILS} key="C">
-            <LocationDetails
-                onStartWayfinding={() => pushAppView(appViews.WAYFINDING)}
-                onBack={() => closeLocationDetails()}
-                onStartDirections={() => pushAppView(appViews.DIRECTIONS)}
-            />
-        </Modal>,
-        <Modal isOpen={currentAppView === appViews.WAYFINDING} key="D">
-            <Wayfinding
-                onStartDirections={() => pushAppView(appViews.DIRECTIONS)}
-                directionsToLocation={directionsToLocation}
-                directionsFromLocation={directionsFromLocation}
-                onBack={() => pushAppView(currentLocation ? appViews.LOCATION_DETAILS : appViews.SEARCH)}
-                isActive={currentAppView === appViews.WAYFINDING}
-            />
-        </Modal>,
-        <Modal isOpen={currentAppView === appViews.DIRECTIONS} key="E">
-            <Directions
-                isOpen={currentAppView === appViews.DIRECTIONS}
-                onBack={() => closeDirections()}
-                onRouteFinished={() => onRouteFinished()}
-            />
-        </Modal>
-    ]
-
     return (
         <div>
-            {pages}
+            <Modal isOpen={true}>
+                {currentAppView === appViews.SEARCH &&
+                    <Search isOpen={currentAppView === appViews.SEARCH} />
+                }
+                {currentAppView === appViews.EXTERNALIDS &&
+                    <LocationsList
+                        onBack={() => closeLocationsList()}
+                        locations={filteredLocationsByExternalIDs}
+                        onLocationClick={(location) => setCurrentLocation(location)}
+                        onLocationsFiltered={(locations) => setFilteredLocationsByExternalID(locations)}
+                    />
+                }
+                {currentAppView === appViews.LOCATION_DETAILS &&
+                    <LocationDetails
+                        onStartWayfinding={() => pushAppView(appViews.WAYFINDING)}
+                        onBack={() => closeLocationDetails()}
+                        onStartDirections={() => pushAppView(appViews.DIRECTIONS)}
+                    />
+                }
+                {currentAppView === appViews.WAYFINDING &&
+                    <Wayfinding
+                        onStartDirections={() => pushAppView(appViews.DIRECTIONS)}
+                        directionsToLocation={directionsToLocation}
+                        directionsFromLocation={directionsFromLocation}
+                        onBack={() => pushAppView(currentLocation ? appViews.LOCATION_DETAILS : appViews.SEARCH)}
+                        isActive={currentAppView === appViews.WAYFINDING}
+                    />
+                }
+                {currentAppView === appViews.DIRECTIONS &&
+                    <Directions
+                        isOpen={currentAppView === appViews.DIRECTIONS}
+                        onBack={() => closeDirections()}
+                        onRouteFinished={() => onRouteFinished()}
+                    />
+                }
+            </Modal>
         </div>
     )
 }

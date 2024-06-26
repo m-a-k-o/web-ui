@@ -3,17 +3,17 @@
     z-index: var(--z-index-overlay);
     width: 568px;
     left: var(--spacing-x-large);
-    bottom: var(--spacing-x-large);
+    // bottom: var(--spacing-x-large);
     border-radius: var(--spacing-x-small);
     border: 1px solid var(--color-gray-30);
     background: var(--color-white-white);
-    transform: translateY(calc(100% + var(--spacing-large)));
+    // transform: translateY(calc(100% + var(--spacing-large)));
     overflow: auto;
     display: none;
     max-height: 80%;
 
     &--open {
-        transform: translateY(0);
+        // transform: translateY(0);
         display: block;
     }
 

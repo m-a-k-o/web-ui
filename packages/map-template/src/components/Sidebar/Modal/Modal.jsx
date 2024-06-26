@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil';
 import substepsToggledState from '../../../atoms/substepsToggledState';
 import './Modal.scss';
 import kioskLocationState from '../../../atoms/kioskLocationState';
+import Draggable from 'react-draggable';
 
 /**
  * A Modal for showing content in the Sidebar.
@@ -44,12 +45,61 @@ function Modal({ children, isOpen }) {
         }
     }, [contentRef]);
 
-    return <div ref={modalRef}
-        className={`modal ${isOpen ? 'modal--open' : ''} ${fullHeight ? 'modal--full' : ''} ${substeps ? 'modal--substeps' : ''} ${kioskLocation ? 'modal--kiosk' : ''}`}>
-        <div ref={contentRef} className="modal__content">
-            {children}
-        </div>
-    </div>
+    const [position, setPosition] = useState({ x: null, y: 0 });
+    useEffect(() => {
+        if (!modalRef.current) {
+            return
+        };
+
+        const sizes = modalRef.current.getBoundingClientRect()
+        const initialPosition = {
+            x: (document.body.getBoundingClientRect().width - sizes.width) / 2,
+            y: (document.body.getBoundingClientRect().height - sizes.height) / 2
+        }
+        setPosition(initialPosition)
+
+        console.log('Init', position)
+        const resizeObserver = new ResizeObserver(() => {
+            setTimeout(() => {
+                const sizes = modalRef.current.getBoundingClientRect()
+
+                const totalHeight = sizes.top + sizes.height
+
+                console.log(sizes.top, sizes.height, totalHeight, document.body.getBoundingClientRect().height)
+
+                if (document.body.getBoundingClientRect().height < totalHeight) {
+                    setPosition({ x: position.x ? position.x : initialPosition.x, y: document.body.getBoundingClientRect().height - sizes.height - 25 })
+                } else if (sizes.y < 0) {
+                    console.log('0')
+                    setPosition({ x: position.x, y: -1 * (document.body.getBoundingClientRect().height - sizes.height) + 50 })
+                }
+            }, 50)
+        });
+
+        resizeObserver.observe(modalRef.current);
+
+        return () => resizeObserver.disconnect(); // clean up
+    }, []);
+
+    return (
+        <Draggable
+            position={position}
+            onDrag={(e, { x, y }) => {
+                setPosition({ x, y });
+            }}
+            scale={1}
+            bounds="body"
+        >
+            <div ref={modalRef}
+                className={`modal ${isOpen ? 'modal--open' : ''} ${fullHeight ? 'modal--full' : ''} ${substeps ? 'modal--substeps' : ''} ${kioskLocation ? 'modal--kiosk' : ''}`}
+                style={{ display: "inline-block" }}
+            >
+                <div ref={contentRef} className="modal__content">
+                    {children}
+                </div>
+            </div>
+        </Draggable>
+    )
 }
 
 export default Modal;
