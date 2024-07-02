@@ -31,7 +31,7 @@ function Modal({ children, isOpen }) {
      * If the height of the content is bigger than the height of the modal, the fullHeight should be set.
      */
     useEffect(() => {
-        if (!contentRef) return;
+        if (!contentRef.current) return;
         const observer = new MutationObserver(() => {
             const contentHeight = contentRef.current.clientHeight;
             const modalHeight = modalRef.current?.clientHeight;
@@ -54,7 +54,7 @@ function Modal({ children, isOpen }) {
         const sizes = modalRef.current.getBoundingClientRect()
         const initialPosition = {
             x: (document.body.getBoundingClientRect().width - sizes.width) / 2,
-            y: (document.body.getBoundingClientRect().height - sizes.height) / 2
+            y: -1 * ((document.body.clientHeight - sizes.height) / 2)
         }
         setPosition(initialPosition)
 
@@ -67,6 +67,7 @@ function Modal({ children, isOpen }) {
                 console.log(sizes.top, sizes.height, totalHeight, document.body.getBoundingClientRect().height)
 
                 if (document.body.getBoundingClientRect().height < totalHeight) {
+                    console.log('now')
                     setPosition({ x: position.x ? position.x : initialPosition.x, y: document.body.getBoundingClientRect().height - sizes.height - 25 })
                 } else if (sizes.y < 0) {
                     console.log('0')
@@ -91,7 +92,6 @@ function Modal({ children, isOpen }) {
         >
             <div ref={modalRef}
                  className={`modal ${isOpen ? 'modal--open' : ''} ${fullHeight ? 'modal--full' : ''} ${substeps ? 'modal--substeps' : ''} ${kioskLocation ? 'modal--kiosk' : ''}`}
-                 style={{ display: "inline-block" }}
             >
                 <div className="modal--draggable">
                     <button type="button" className="modal--draggable__handle"></button>
