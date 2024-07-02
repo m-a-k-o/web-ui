@@ -142,7 +142,7 @@ function RouteInstructions({ steps, onNextStep, onPreviousStep, originLocation, 
                     >
                     </RouteInstructionsStep>
                     <div className={`route-instructions__footer ${!isKioskContext ? '' : 'route-instructions__footer--kiosk'}`}>
-                        <div dir={i18n.dir} className="route-instructions__actions">
+                        <div dir={i18n.dir()} className="route-instructions__actions">
                             <button className={`route-instructions__button ${!isKioskContext ? '' : 'route-instructions__button--kiosk'} ${i18n.dir() === 'rtl' ? 'route-instructions__button--rtl' : ''}`}
                                 onClick={() => previousStep()}
                                 aria-label={t('Previous')}

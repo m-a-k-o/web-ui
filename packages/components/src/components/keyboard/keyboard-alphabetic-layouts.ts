@@ -5,7 +5,7 @@ export const unitedStatesAlphabetic = {
         'a s d f g h j k l',
         'z x c v b n m . - &',
         '{space}'
-    ]
+    ],
 };
 
 export const danishAlphabetic = {
@@ -45,9 +45,6 @@ export const arabicAlphabetic = {
         '\u0626 \u0621 \u0624 \u0631 \u0644\u0627 \u0649 \u0629 \u0648 \u0632 \u0638 . - &',
         '{space}'
     ],
-    display: {
-        '{space}': 'فضاء'
-    }
 };
 
 export const defaultAlphabetic = unitedStatesAlphabetic;

@@ -58,7 +58,6 @@ function Modal({ children, isOpen }) {
         }
         setPosition(initialPosition)
 
-        console.log('Init', position)
         const resizeObserver = new ResizeObserver(() => {
             setTimeout(() => {
                 const sizes = modalRef.current.getBoundingClientRect()
@@ -91,9 +90,12 @@ function Modal({ children, isOpen }) {
             bounds="body"
         >
             <div ref={modalRef}
-                className={`modal ${isOpen ? 'modal--open' : ''} ${fullHeight ? 'modal--full' : ''} ${substeps ? 'modal--substeps' : ''} ${kioskLocation ? 'modal--kiosk' : ''}`}
-                style={{ display: "inline-block" }}
+                 className={`modal ${isOpen ? 'modal--open' : ''} ${fullHeight ? 'modal--full' : ''} ${substeps ? 'modal--substeps' : ''} ${kioskLocation ? 'modal--kiosk' : ''}`}
+                 style={{ display: "inline-block" }}
             >
+                <div className="modal--draggable">
+                    <button type="button" className="modal--draggable__handle"></button>
+                </div>
                 <div ref={contentRef} className="modal__content">
                     {children}
                 </div>

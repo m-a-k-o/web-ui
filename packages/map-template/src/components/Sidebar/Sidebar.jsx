@@ -82,6 +82,7 @@ function Sidebar({ directionsFromLocation, directionsToLocation, pushAppView, cu
      */
     function closeDirections() {
         if (kioskLocation) {
+            console.log('KL', kioskLocation)
             pushAppView(appViews.LOCATION_DETAILS)
         } else {
             pushAppView(appViews.WAYFINDING)
@@ -91,25 +92,29 @@ function Sidebar({ directionsFromLocation, directionsToLocation, pushAppView, cu
     return (
         <div>
             <Modal isOpen={true}>
-                {currentAppView === appViews.SEARCH &&
+                <div className={currentAppView === appViews.SEARCH ? '' : 'hidden'}>
                     <Search isOpen={currentAppView === appViews.SEARCH} />
-                }
-                {currentAppView === appViews.EXTERNALIDS &&
+                </div>
+
+                <div className={currentAppView === appViews.EXTERNALIDS ? '' : 'hidden'}>
                     <LocationsList
                         onBack={() => closeLocationsList()}
                         locations={filteredLocationsByExternalIDs}
                         onLocationClick={(location) => setCurrentLocation(location)}
                         onLocationsFiltered={(locations) => setFilteredLocationsByExternalID(locations)}
                     />
-                }
-                {currentAppView === appViews.LOCATION_DETAILS &&
+                </div>
+
+
+                <div className={currentAppView === appViews.LOCATION_DETAILS ? '' : 'hidden'}>
                     <LocationDetails
                         onStartWayfinding={() => pushAppView(appViews.WAYFINDING)}
                         onBack={() => closeLocationDetails()}
                         onStartDirections={() => pushAppView(appViews.DIRECTIONS)}
                     />
-                }
-                {currentAppView === appViews.WAYFINDING &&
+                </div>
+
+                <div className={currentAppView === appViews.WAYFINDING ? '' : 'hidden'}>
                     <Wayfinding
                         onStartDirections={() => pushAppView(appViews.DIRECTIONS)}
                         directionsToLocation={directionsToLocation}
@@ -117,14 +122,15 @@ function Sidebar({ directionsFromLocation, directionsToLocation, pushAppView, cu
                         onBack={() => pushAppView(currentLocation ? appViews.LOCATION_DETAILS : appViews.SEARCH)}
                         isActive={currentAppView === appViews.WAYFINDING}
                     />
-                }
-                {currentAppView === appViews.DIRECTIONS &&
+                </div>
+
+                <div className={currentAppView === appViews.DIRECTIONS ? '' : 'hidden'}>
                     <Directions
                         isOpen={currentAppView === appViews.DIRECTIONS}
                         onBack={() => closeDirections()}
                         onRouteFinished={() => onRouteFinished()}
                     />
-                }
+                </div>
             </Modal>
         </div>
     )

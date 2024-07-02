@@ -33,7 +33,7 @@ const Keyboard = forwardRef(({ searchInputElement }, ref) => {
         }
     }, [searchInputElement]);
 
-    return <mi-keyboard dir="ltr" rtl={i18n.dir() === 'rtl'} language={language} ref={elementRef}></mi-keyboard>
+    return <mi-keyboard dir={i18n.dir()} language={language} ref={elementRef}></mi-keyboard>
 });
 
 export default Keyboard;
