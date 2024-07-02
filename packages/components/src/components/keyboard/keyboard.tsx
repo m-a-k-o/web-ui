@@ -94,7 +94,7 @@ export class Keyboard implements ComponentInterface {
             display: {
                 '{bksp}': '&#9003;',
                 '{enter}': 'return',
-                '{space}': 'فضاء'
+                '{space}': '&#5760;'
             },
             theme: 'hg-theme-default hg-layout-numeric numeric-theme'
         });
