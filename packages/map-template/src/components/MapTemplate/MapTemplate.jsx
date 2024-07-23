@@ -205,15 +205,14 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
      */
     useEffect(() => {
         if (mapsindoorsSDKAvailable) {
-            const languageToUse = language ? language : navigator.language;
+            const languageToUse = currentLanguage ? currentLanguage : language ? language : navigator.language;
 
             // Set the language on the MapsIndoors SDK in order to get eg. Mapbox and Google directions in that language.
             window.mapsindoors.MapsIndoors.setLanguage(languageToUse);
 
             window.mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
-                console.log(userRoles);
+                // console.log(userRoles);
             });
-
             // If relevant, fetch venues, categories and the current location again to get them in the new language
             window.mapsindoors.services.LocationsService.once('update_completed', () => {
                 if (categories.length > 0) {
@@ -247,7 +246,7 @@ function MapTemplate({ apiKey, gmApiKey, mapboxAccessToken, venue, locationId, p
 
             document.dir = i18n.dir();
         }
-    }, [language, mapsindoorsSDKAvailable]);
+    }, [language, mapsindoorsSDKAvailable, currentLanguage]);
 
     /**
      * React on changes in the MapsIndoors API key by fetching the required data.

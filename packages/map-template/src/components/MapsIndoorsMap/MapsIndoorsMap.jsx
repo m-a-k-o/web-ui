@@ -34,7 +34,6 @@ import MapTemplate from '../MapTemplate/MapTemplate.jsx';
  * @param {boolean} [props.searchAllVenues] - If you want to perform search across all venues in the solution.
  */
 function MapsIndoorsMap(props) {
-
     const [mapTemplateProps, setMapTemplateProps] = useState();
 
     /*
