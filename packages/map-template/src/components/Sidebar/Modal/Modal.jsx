@@ -83,6 +83,7 @@ function Modal({ children, isOpen }) {
 
     return (
         <Draggable
+            handle=".modal--draggable"
             position={position}
             onDrag={(e, { x, y }) => {
                 setPosition({ x, y });

@@ -36,6 +36,11 @@ function MapboxMap({ onMapView, onPositionControl }) {
     useEffect(() => {
         // Initialize MapboxV3View MapView
         window.mapboxgl = mapboxgl;
+        window.mapboxgl.setRTLTextPlugin(
+            'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.3.0/mapbox-gl-rtl-text.js',
+            null,
+            true // Lazy load the plugin
+        );
         const mapViewOptions = {
             accessToken: mapboxAccessToken,
             element: document.getElementById('map'),
@@ -49,6 +54,7 @@ function MapboxMap({ onMapView, onPositionControl }) {
         }
 
         const mapViewInstance = new window.mapsindoors.mapView.MapboxV3View(mapViewOptions);
+
         setMapView(mapViewInstance);
 
         // Setup an external directions provider that will be used to calculate directions
