@@ -45,7 +45,7 @@ function Modal({ children, isOpen }) {
         }
     }, [contentRef]);
 
-    const [position, setPosition] = useState({ x: null, y: 0 });
+    const [position, setPosition] = useState({ x: 0, y: 0 });
     useEffect(() => {
         if (!modalRef.current) {
             return
@@ -67,11 +67,9 @@ function Modal({ children, isOpen }) {
                 console.log(sizes.top, sizes.height, totalHeight, document.body.getBoundingClientRect().height)
 
                 if (document.body.getBoundingClientRect().height < totalHeight) {
-                    console.log('now')
                     setPosition({ x: position.x ? position.x : initialPosition.x, y: document.body.getBoundingClientRect().height - sizes.height - 25 })
                 } else if (sizes.y < 0) {
-                    console.log('0')
-                    setPosition({ x: position.x, y: -1 * (document.body.getBoundingClientRect().height - sizes.height) + 50 })
+                    setPosition({ x: new DOMMatrixReadOnly(modalRef.current.style.transform).m41, y: -1 * (document.body.getBoundingClientRect().height - sizes.height) + 50 })
                 }
             }, 50)
         });
