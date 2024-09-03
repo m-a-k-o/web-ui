@@ -83,11 +83,12 @@ function Directions({ isOpen, onBack, onSetSize, snapPointSwiped, onRouteFinishe
                 directionsRenderer = new window.mapsindoors.directions.DirectionsRenderer({
                     mapsIndoors: mapsIndoorsInstance,
                     fitBoundsPadding: {
-                        top: padding,
-                        bottom: bottomPadding,
+                        top: 0,
+                        bottom: bottomPadding + 250,
                         left: leftPadding,
                         right: padding
-                    }
+                    },
+                    fitBounds: true,
                 });
 
                 directionsRenderer.setRoute(directions.directionsResult);
@@ -114,10 +115,13 @@ function Directions({ isOpen, onBack, onSetSize, snapPointSwiped, onRouteFinishe
      */
     function getBottomPadding(padding) {
         return new Promise((resolve) => {
+            console.log('bottom padding', padding)
             if (isDesktop) {
                 if (kioskLocation) {
+                    console.log('Kiosk!')
                     getDesktopPaddingBottom().then(result => resolve(result));
                 } else {
+                    console.log('Nonkiosk')
                     resolve(padding);
                 }
             } else {

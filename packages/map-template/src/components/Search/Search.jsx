@@ -251,7 +251,7 @@ function Search({ onSetSize, isOpen }) {
             let maxHeight;
             if (isDesktop) {
                 // On desktop-sized viewports, we want the container to have a max height of 60% of the Map Template.
-                maxHeight = document.querySelector('.mapsindoors-map').clientHeight * 0.6 + 'px';
+                maxHeight = '400px';
             } else {
                 // On mobile-sized viewports, take up all available space if needed.
                 maxHeight = '100%';

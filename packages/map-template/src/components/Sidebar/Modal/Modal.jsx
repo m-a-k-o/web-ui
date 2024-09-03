@@ -54,7 +54,7 @@ function Modal({ children, isOpen }) {
         const sizes = modalRef.current.getBoundingClientRect()
         const initialPosition = {
             x: (document.body.getBoundingClientRect().width - sizes.width) / 2,
-            y: -1 * ((document.body.clientHeight - sizes.height) / 2)
+            y: -1 * ((document.body.clientHeight - sizes.height) / 2 - 200)
         }
         setPosition(initialPosition)
 
